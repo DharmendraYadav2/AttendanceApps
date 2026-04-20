@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "645580139381",
+    "project_id": "hajribook-5323d",
+    "storage_bucket": "hajribook-5323d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645580139381:android:4e9b6ca291b123030e413c",
+        "android_client_info": {
+          "package_name": "com.example.tutionsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSK6k2cFLzDFhsY4hV-LQxiFyO9Q4bWKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
