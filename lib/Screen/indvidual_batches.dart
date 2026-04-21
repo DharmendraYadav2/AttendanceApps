@@ -232,25 +232,14 @@ class _Individual_personState extends ConsumerState<Individual_person> {
                         ),
 
                         child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 8.0,
-                            vertical: 5,
-                          ),
-                          child: Container(
-                            height: MediaQuery.of(context).size.height / 12,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(12),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.1),
-                                  blurRadius: 1,
-                                  spreadRadius: 1,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Card(
+                            elevation: 0.6,
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusGeometry.circular(12),
                             ),
+
                             child: ListTile(
                               leading: CircleAvatar(
                                 backgroundColor: Colors.grey[200],
