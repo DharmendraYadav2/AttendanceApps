@@ -155,13 +155,24 @@ class _HomeState extends ConsumerState<Home> {
                         ),
 
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Card(
-                            color: Colors.white,
-                            elevation: 1.0,
-
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadiusGeometry.circular(10),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.0,
+                            vertical: 5,
+                          ),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height / 10,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 1,
+                                  spreadRadius: 1,
+                                  offset: Offset(0, 3),
+                                ),
+                              ],
                             ),
                             child: ListTile(
                               title: Text(

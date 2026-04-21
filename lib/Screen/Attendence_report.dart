@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:horizontal_weekly_calendar/weekly_calendar.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 import 'package:tutionsapp/Functions/app_function.dart';
@@ -7,6 +8,7 @@ import 'package:tutionsapp/model/employee_model.dart';
 
 import '../Service/Firebase/controller/attendence_pr.dart';
 import '../Service/Firebase/providers/att_list.dart';
+import '../Service/export service/share_pdf.dart';
 import '../Theme/app_fonts.dart';
 import '../model/attendece_table.dart';
 import '../model/attendence_filter.dart';
@@ -94,6 +96,28 @@ class _View_attendenceState extends ConsumerState<View_attendence> {
           "Hajri Book",
           style: AppFonts().heading.copyWith(color: Colors.white),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Color(0xFF0575E6),
+        onPressed: () async {
+          try {
+            final data = listAsync.maybeWhen(
+              data: (value) => value,
+              orElse: () => <AttendanceRow>[],
+            );
+
+            print("DATA LENGTH: ${data.length}");
+
+            final file = await ExportService.exportAttendancePdf(data);
+
+            print("FILE PATH: ${file.path}");
+
+            await ExportService.shareAttendance(data);
+          } catch (e) {
+            print("ERROR: $e");
+          }
+        },
+        child: Icon(Icons.share, color: Colors.white),
       ),
       body: SingleChildScrollView(
         child: Column(
