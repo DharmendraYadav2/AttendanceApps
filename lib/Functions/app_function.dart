@@ -233,20 +233,76 @@ void delete(WidgetRef ref, String id) {
 }
 
 //backbutton app close--//
+
 void backbutton() {
   Get.defaultDialog(
+    backgroundColor: Colors.white,
+    radius: 12,
+
     title: "Exit App",
+    titleStyle: AppFonts().heading.copyWith(
+      color: Color(0xFF021B79),
+      fontWeight: FontWeight.bold,
+    ),
+
     middleText: "Are you sure you want to exit?",
-    textConfirm: "Yes",
-    textCancel: "No",
-    onConfirm: () {
-      Get.back();
-      Future.delayed(Duration(milliseconds: 200), () {
-        SystemNavigator.pop();
-        return true;
-      });
-    },
-    onCancel: () {},
+    middleTextStyle: AppFonts().body.copyWith(
+      color: Colors.black,
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+    ),
+
+    contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
+    actions: [
+      Row(
+        children: [
+          Expanded(
+            child: OutlinedButton(
+              onPressed: () {
+                Get.back();
+              },
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(color: Color(0xFF021B79)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: Text(
+                "Cancel",
+                style: AppFonts().heading.copyWith(
+                  color: Color(0xFF021B79),
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(width: 10),
+          Expanded(
+            child: ElevatedButton(
+              onPressed: () {
+                Get.back();
+                SystemNavigator.pop();
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFF021B79),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: Text(
+                "Exit",
+                style: AppFonts().heading.copyWith(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    ],
   );
 }
 
