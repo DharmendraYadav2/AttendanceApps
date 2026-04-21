@@ -106,12 +106,6 @@ class _View_attendenceState extends ConsumerState<View_attendence> {
               orElse: () => <AttendanceRow>[],
             );
 
-            print("DATA LENGTH: ${data.length}");
-
-            final file = await ExportService.exportAttendancePdf(data);
-
-            print("FILE PATH: ${file.path}");
-
             await ExportService.shareAttendance(data);
           } catch (e) {
             print("ERROR: $e");
